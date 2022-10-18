@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="./stylesheets/style.css" type="text/css" />
 
     <!-- My Scripts -->
-    <script src="./scripts/script.js" type="text/javascript" defer></script>
+    <script src="./scripts/app.js" type="text/javascript" defer></script>
     <!--#endregion Stylesheets and Scripts -->
 
     <!--#region META -->
@@ -49,5 +49,19 @@
 <!-- BODY -->
 <body>
     <h1>Music App</h1>
+
+    <main id="app">
+      <section>
+        <h2>Albums</h2>
+
+        <article class="album"
+          v-for="album of albumsData"
+        >
+          <h3 class="album-title">{{ album.title }}</h3>
+          <p>by {{ album.author }}</p>
+          <p>{{ album.year }}</p>
+        </article>
+      </section>
+    </main>
 </body>
 </html>
