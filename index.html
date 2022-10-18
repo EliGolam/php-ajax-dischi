@@ -54,6 +54,8 @@
       <section>
         <h2>Albums</h2>
 
+        <input type="text" v-model="searchText" @keyup.enter="searchContent" />
+
         <article class="album"
           v-for="album of albumsData"
         >

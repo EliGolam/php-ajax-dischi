@@ -67,14 +67,29 @@
     [
       "poster" => "https://m.media-amazon.com/images/I/71K9CbNZPsL._SS500_.jpg",
       "title" => "Bad",
-      "author" => "Michael Jacjson",
+      "author" => "Michael JacKson",
       "genre" => "Pop",
       "year" => "1987"
     ]
   ];
 
+  $result = []; 
+
+  if(isset($_GET['search'])) {
+    $search = $_GET['search'];
+
+    foreach($albums as $album) {
+      if(strpos(strtolower($album['title']), $search) !== false) {
+        $result[] = $album; 
+      } 
+    }
+  } 
+  else {
+    $search = '';
+    $result = $albums; 
+  }
   
   /* Create JSON */
   header('Content-Type: application/json');
-  echo json_encode($albums);
+  echo json_encode($result);
 ?>
